@@ -1,0 +1,384 @@
+/* SCHRIFTART */
+@font-face {
+    font-family: 'Tiny5-Local';
+    src: url(Tiny5-Regular.ttf) format('truetype');
+}
+
+/* FARBEN UND HÖHE NAV*/
+:root {
+    --tsuki-dark: #0a0a0c;
+    --tsuki-accent: #00f2ff; 
+    --tsuki-pink: #ff00ff;   
+    --tsuki-white: #ffffff;
+    --nav-height: 140px;     
+}
+
+/* LAYOUT-STRUKTUR CSS GRID */
+#grid-master {
+    display: grid;
+    grid-template-rows: var(--nav-height) auto min-content;
+    grid-template-columns: 100%;
+    min-height: 100vh;
+}
+
+/* OPTIK UND HINTERGRUND */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--tsuki-dark);
+    font-family: 'Tiny5-Local', sans-serif;
+    color: var(--tsuki-white);
+    overflow-x: hidden;
+    background-image: 
+        linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* NAVIGATIONSLEISTE */
+.navbar {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 0 60px;
+    background: rgba(10, 10, 12, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 3px solid var(--tsuki-accent);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* LOGO OPTIK */
+.nav-logo img {
+    max-height: 100px;
+    filter: drop-shadow(0 0 10px var(--tsuki-accent));
+}
+
+/* NAV LINKS  */
+.nav-links {
+    grid-column: 3;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 40px;
+}
+
+/* NAV LINKS INTERAKTION */
+.nav-links a {
+    text-decoration: none;
+    color: var(--tsuki-white);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--tsuki-accent);
+    text-shadow: 0 0 10px var(--tsuki-accent);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -8px;
+    left: 0;
+    background: var(--tsuki-pink);
+    box-shadow: 0 0 15px var(--tsuki-pink);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* FOOTER/FUßZEILE UND OPTIK */
+.arcade-footer {
+    grid-row: 3;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* IMPRESSUM OPTIK IM FOOTER */
+#imp {
+    color: var(--tsuki-accent);
+}
+
+/* IMPRESSUM GRID */
+.impressum-grid {
+    display: grid;
+    grid-template-columns: 350px 450px; 
+    gap: 40px;
+    justify-self: center; 
+    align-items: start;
+    margin-top: 50px;
+    text-align: left;
+}
+
+/* KONTAKT  */
+.contact-section {
+    border: 2px solid var(--tsuki-pink);
+    padding: 25px;
+    background: rgba(255, 0, 255, 0.05);
+    box-shadow: 0 0 15px var(--tsuki-pink);
+    display: grid;
+    place-items: center;
+}
+
+/* KONTAKT BUTTON */
+.contact-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background: var(--tsuki-accent);
+    color: var(--tsuki-dark);
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.contact-button:hover {
+    background: var(--tsuki-white);
+    box-shadow: 0 0 20px var(--tsuki-white);
+    transform: scale(1.05);
+}
+
+/* RECHTLICHE INFOS TEXT OPTIK */
+.rechtlich p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* HAUPTTITEL PREIS ZENTRIERUNG */
+#preis-title {
+    justify-self: center;
+    margin-bottom: 20px;
+}
+
+/* ÜBER UNS GRID */
+.about-grid {
+    display: grid;
+    grid-template-columns: 450px 450px;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+/* ÜBER UNS TEXTE OPTIK */
+.about-text {
+    text-align: left;
+}
+
+.about-text h2 {
+    color: var(--tsuki-accent);
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    line-height: 1.6;
+    color: var(--tsuki-white);
+}
+
+/* PIXEL BOXEN OPTIK */
+.pixel-box {
+    width: 100%;
+    height: 250px;
+    border: 3px solid var(--tsuki-accent);
+    background: rgba(0, 242, 255, 0.1);
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    box-shadow: 0 0 20px var(--tsuki-accent);
+}
+
+.pixel-box.pink {
+    border-color: var(--tsuki-pink);
+    background: rgba(255, 0, 255, 0.1);
+    box-shadow: 0 0 20px var(--tsuki-pink);
+}
+
+/* RETRO NEON */
+#retro {
+    color: var(--tsuki-pink);
+}
+
+/* BILDER IN BOXEN */
+.i1 {
+    width: 100%;
+    height: 250px;
+}
+
+/* TABELLEN LAYOUT */
+.tabelle {
+    display: grid;
+    place-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid var(--tsuki-accent); 
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--tsuki-pink);
+}
+
+/* LISTEN OPTIK */
+.arcade-list, .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.arcade-list li::before, .feature-list li::before {
+    content: "> ";
+    color: var(--tsuki-accent);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* UNTERLISTEN */
+.sub-list {
+    list-style: none;
+    padding-left: 35px;
+    margin: 10px 0;
+}
+
+.sub-list li::before {
+    content: "- ";
+    color: var(--tsuki-pink);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* ÜBERSCHRIFTEN H2 */
+#h2-pink {
+    color: var(--tsuki-pink);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+/* SPEZIELLE LISTENFARBE */
+.li-b {
+    color: rgb(236, 201, 236);
+}
+
+/* TABELLEN ÜBERSCHRIFT BLAU */
+#blue {
+    background-color: var(--tsuki-accent);
+    padding: 2px;
+    box-shadow: 0 0 20px var(--tsuki-accent);
+}
+
+/* SPIELE GRID */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game h3 {
+    color: var(--tsuki-pink); 
+    margin: 15px 0 5px 0;
+}
+
+.text-game {
+    color: var(--tsuki-accent); 
+    font-size: 0.9em;
+}
+
+.game p:last-child {
+    color: var(--tsuki-white);
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.game img {
+    width: 100%;
+    border-radius: 20px; 
+    border: 1px solid rgba(0, 242, 255, 0.2); 
+}
+
+/* TITEL SPIELE SEITE */
+#titel-spiele {
+    text-align: center;
+}
+
+/* BANNER BILD HAUPTSEITE */
+.banner-bild {
+    width: 100vw;
+    height: 55em;
+    object-fit: cover;
+}
+
+/* BANNER TEXT HAUPTSEITE */
+.bild-text {
+    position: absolute;
+    top: 50%;          
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    color: var(--tsuki-white);
+    text-shadow: 2px 2px 5px var(--tsuki-accent);
+    font-size: 2em;
+}
+
+/* PFEIL */
+#pfeil {
+    margin-top: 100px;    
+    font-size: 6rem;     
+    color: var(--tsuki-white);
+    font-weight: bold;
+    transform: translateY(250px);
+}
+
+/* INFO GRID HAUPTSEITE */
+.info-gitter {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+    padding: 60px 10%;
+}
+
+/* INFO BOXEN */
+.box {
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #333;
+    color: white;
+}
+
+.box h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* BOX FARB-VARIANTEN */
+.regeln { border-color: var(--tsuki-accent); box-shadow: 0 0 15px var(--tsuki-accent); }
+.zeiten { border-color: var(--tsuki-pink); box-shadow: 0 0 15px var(--tsuki-pink); }
+.anfahrt { border-color: var(--tsuki-accent); box-shadow: 0 0 15px var(--tsuki-accent); }
+
+/*© 2026 Project Arcade  Nikita Herdt*/
